@@ -5,10 +5,9 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 
 export class HightLightDirective {
-    @Input() highlightColor: string;
+    @Input('myHighLight') highlightColor: string;
 
-    constructor(private el: ElementRef){
-        this.el.nativeElement.style.backgroundColor = this.highlightColor;
+    constructor(private el: ElementRef) {
     }
 
     @HostListener('mouseenter') onmouseenter() {
@@ -19,7 +18,7 @@ export class HightLightDirective {
         this.hightlight(null);
     }
 
-    private hightlight(color: string){
+    private hightlight(color: string) {
         this.el.nativeElement.style.backgroundColor = color;
     }
 }
